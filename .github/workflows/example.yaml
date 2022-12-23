@@ -12,7 +12,7 @@ jobs:
            env:
               YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
            with:
-              channel_id: "UUU5JicSrEM5A63jkJ2QvGY"
+              channel_id: "UUU5JicSrEM5A63jkJ2QvGYw"
          - name: Push changes
            uses: actions-js/push@master
            with:
