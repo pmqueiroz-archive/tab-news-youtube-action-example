@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '5 11 * * 1' # runs every monday at 11:05am
+jobs:
+   update_readme:
+      runs-on: ubuntu-latest
+      steps:
+         - uses: actions/checkout@v2
+         - name: Get Youtube Videos
+           uses: pmqueiroz/readme-last-youtube-videos@main
+           env:
+              YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+           with:
+              channel_id: "UUU5JicSrEM5A63jkJ2QvGY"
+         - name: Push changes
+           uses: actions-js/push@master
+           with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
